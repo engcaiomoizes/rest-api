@@ -3,15 +3,9 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
-const mongoose = require('mongoose');
+const users = require('./routes/users.route');
 
-let url = 'mongodb://localhost:27017/testes';
-let mongoDB = process.env.URI || url;
-mongoose.connect(mongoDB);
-mongoose.Promise = global.Promise;
-
-let db = mongoose.connection;
-db.on('error', console.error.bind(console, 'Erro na ligação ao MongoDB'));
+require('./db');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false })); // apenas dados simples
@@ -34,6 +28,8 @@ app.use((req, res, next) => {
 app.get('/', function (req, res) {
     res.send("Hello, World!");
 });
+
+app.use('/users', users);
 
 // Quando não encontra rota, entra aqui:
 app.use((req, res, next) => {

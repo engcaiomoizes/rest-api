@@ -1,5 +1,6 @@
 {
     "env": {
+        "URI": "mongodb://localhost:27017/testes",
         "PORT": 3000
     }
 }
