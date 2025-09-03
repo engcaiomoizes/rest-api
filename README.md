@@ -14,6 +14,18 @@ Projeto para praticar desenvolvimento de API REST utilizando banco de dados não
    npm install
    ```
 
+3. Crie o arquivo **nodemon.json** na raíz:
+
+   Exemplo:
+   ```json
+   {
+       "env": {
+           "URI": "URI DO SEU BANCO MONGODB",
+           "PORT": 3000
+       }
+   }
+   ```
+
 3. Execute o projeto
    ```bash
    npm start
