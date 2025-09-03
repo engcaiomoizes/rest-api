@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let mongoDB = process.env.URI || url;
+let mongoDB = process.env.URI;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 
